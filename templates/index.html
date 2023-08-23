@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    </head>
-    <body>
-        <h1>Stock Filter</h1>
-        <select>Please pick an option</select>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/js/app.js"></script>
+</head>
+
+<body>
+    <h1>Stock Filter</h1>
+    <select id="tickerDropdown">
+        <!-- Options will be populated using JavaScript -->
+    </select>
+    <table border="1" id="stockDetails">
+        <!-- Table content will be populated using JavaScript -->
+    </table>
+</body>
+
 </html>
