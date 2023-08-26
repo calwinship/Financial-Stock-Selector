@@ -1,15 +1,9 @@
 
 $(document).ready(function() {
-    // Fetch tickers and populate dropdown
-    $.get('http://localhost:5000/tickers', function(data) {
-        data.forEach(ticker => {
-            $('#tickerDropdown').append(`<option value="${ticker}">${ticker}</option>`);
-        });
-    });
-
+    
     // Fetch stock details when a ticker is selected
-    $('#tickerDropdown').change(function() {
-        const selectedTicker = $(this).val();
+    $('#fetchStock').click(function() {
+        const selectedTicker = $('#tickerInput').val();
         $.get(`http://localhost:5000/stocks/${selectedTicker}`, function(data) {
             $('#stockDetails').html(`
                 <tr>
@@ -25,6 +19,9 @@ $(document).ready(function() {
                     <td>${data.price}</td>
                 </tr>
             `);
+            }).fail(function(error) {
+                console.error("Error in AJAX call:", error);
         });
     });
 });
+
