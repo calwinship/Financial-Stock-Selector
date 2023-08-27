@@ -7,20 +7,22 @@ $(document).ready(function() {
         $.get(`http://localhost:5000/stocks/${selectedTicker}`, function(data) {
             $('#stockDetails').html(`
                 <tr>
-                    <td>Ticker</td>
+                    <td>Ticker: </td>
                     <td>${selectedTicker}</td>
                 </tr>
                 <tr>
-                    <td>Name</td>
+                    <td>Name: </td>
                     <td>${data.name}</td>
                 </tr>
                 <tr>
-                    <td>Price</td>
+                    <td>Price: </td>
                     <td>${data.price}</td>
                 </tr>
             `);
             }).fail(function(error) {
-                console.error("Error in AJAX call:", error);
+                $('#stockDetails').html(`
+                    <p>No stock found</p>
+                `)
         });
     });
 });
